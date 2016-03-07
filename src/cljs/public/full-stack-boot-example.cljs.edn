@@ -1,0 +1,3 @@
+{:require  [full-stack-boot-example.core]
+ :init-fns []
+ :compiler-options {}}

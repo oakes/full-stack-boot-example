@@ -22,8 +22,7 @@
 (require
   '[adzerk.boot-cljs :refer [cljs]]
   '[adzerk.boot-cljs-repl :refer [cljs-repl]]
-  '[adzerk.boot-reload :refer [reload]]
-  '[clojure.java.io :as io])
+  '[adzerk.boot-reload :refer [reload]])
 
 (deftask run-cljs []
   (comp (watch)
@@ -34,7 +33,6 @@
 
 (deftask run-clj []
   (with-pre-wrap fileset
-    (.mkdirs (io/file "target" "public"))
     (require '[full-stack-boot-example.core :refer [dev-main]])
     ((resolve 'dev-main))
     fileset))

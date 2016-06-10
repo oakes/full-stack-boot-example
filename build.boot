@@ -3,7 +3,8 @@
   :resource-paths #{"resources"}
   :dependencies '[[adzerk/boot-cljs "1.7.228-1" :scope "test"]
                   [adzerk/boot-cljs-repl "0.3.0" :scope "test"]
-                  [adzerk/boot-reload "0.4.4" :scope "test"]
+                  [adzerk/boot-reload "0.4.8" :scope "test"]
+                  ; for boot-cljs-repl
                   [com.cemerick/piggieback "0.2.1" :scope "test"]
                   [weasel "0.7.0" :scope "test"]
                   [org.clojure/tools.nrepl "0.2.12" :scope "test"]
@@ -25,11 +26,13 @@
   '[adzerk.boot-reload :refer [reload]])
 
 (deftask run-cljs []
-  (comp (watch)
-        (reload :asset-path "public"
-                :on-jsload 'full-stack-boot-example.core/init!)
-        (cljs-repl)
-        (cljs :source-map true :optimizations :none)))
+  (comp
+    (watch)
+    (reload :asset-path "public"
+            :on-jsload 'full-stack-boot-example.core/init!)
+    (cljs-repl)
+    (cljs :source-map true :optimizations :none)
+    (target)))
 
 (deftask run-clj []
   (with-pre-wrap fileset
@@ -41,10 +44,10 @@
   (comp (run-cljs) (run-clj)))
 
 (deftask build-cljs []
-  (comp (cljs :optimizations :advanced)))
+  (comp (cljs :optimizations :advanced) (target)))
 
 (deftask build-clj []
-  (comp (aot) (pom) (uber) (jar)))
+  (comp (aot) (pom) (uber) (jar) (target)))
 
 (deftask build []
   (comp (build-cljs) (build-clj)))

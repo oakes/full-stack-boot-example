@@ -22,3 +22,4 @@
 
 (defn -main [& args]
   (start-web-server! (wrap-resource web-handler "public")))
+

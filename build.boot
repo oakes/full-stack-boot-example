@@ -5,8 +5,8 @@
                   [adzerk/boot-reload "0.4.12" :scope "test"]
                   ; project deps
                   [org.clojure/clojure "1.8.0"]
-                  [org.clojure/clojurescript "1.9.225"]
-                  [reagent "0.6.0"]
+                  [org.clojure/clojurescript "1.9.456" :scope "test"]
+                  [reagent "0.6.0" :scope "test"]
                   [ring "1.4.0"]])
 
 (task-options!

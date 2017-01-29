@@ -1,13 +1,13 @@
 (set-env!
   :source-paths #{"src/clj" "src/cljc" "src/cljs"}
   :resource-paths #{"resources"}
-  :dependencies '[[adzerk/boot-cljs "1.7.228-1" :scope "test"]
+  :dependencies '[[adzerk/boot-cljs "1.7.228-2" :scope "test"]
                   [adzerk/boot-reload "0.4.12" :scope "test"]
                   ; project deps
                   [org.clojure/clojure "1.8.0"]
                   [org.clojure/clojurescript "1.9.456" :scope "test"]
                   [reagent "0.6.0" :scope "test"]
-                  [ring "1.4.0"]])
+                  [ring "1.5.1"]])
 
 (task-options!
   pom {:project 'full-stack-boot-example

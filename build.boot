@@ -25,12 +25,11 @@
 (deftask run []
   (comp
     (watch)
-    (reload :asset-path "public"
-            :on-jsload 'full-stack-boot-example.core/init)
+    (reload :asset-path "public")
     (cljs :source-map true :optimizations :none)
     (target)
     (with-pass-thru _
-      (full-stack-boot-example.core/-main))))
+      (full-stack-boot-example.core/dev-main))))
 
 (deftask build []
   (comp

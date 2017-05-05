@@ -9,4 +9,4 @@
     (r/render-component [content state]
                         (.querySelector js/document "#content"))))
 
-(set! (.-onload js/window) init)
+(init)

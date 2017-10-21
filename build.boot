@@ -29,22 +29,22 @@
   'full-stack-boot-example.core)
 
 (deftask run []
-         (comp
-           (watch)
-           (reload :asset-path "public")
-           (cljs-repl :nrepl-opts {:port 9009})
-           (cljs :source-map true :optimizations :none :compiler-options {:asset-path "main.out"})
-           (target)
-           (with-pass-thru _
-                           (full-stack-boot-example.core/dev-main))))
+  (comp
+    (with-pass-thru _
+      (full-stack-boot-example.core/dev-main))
+    (watch)
+    (reload :asset-path "public")
+    (cljs-repl :nrepl-opts {:port 9009})
+    (cljs :source-map true :optimizations :none :compiler-options {:asset-path "main.out"})
+    (target)))
 
 (deftask build []
-         (comp
-           (cljs :optimizations :advanced)
-           (aot)
-           (pom)
-           (uber)
-           (jar)
-           (sift)
-           (target)))
+  (comp
+    (cljs :optimizations :advanced)
+    (aot)
+    (pom)
+    (uber)
+    (jar)
+    (sift)
+    (target)))
 

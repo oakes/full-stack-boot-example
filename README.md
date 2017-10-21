@@ -32,7 +32,7 @@ nil
 cljs.user=>
 
 ```
-To test the **REPL** type `(js/alert "Hello"`, which should open an alert box in your browser.
+To test the **REPL** type `(js/alert "Hello")`, which should open an alert box in your browser.
 
 ### Connecting with other tools
 If you would like to connect with other tools, like your editor, you can do so via Port **9009**.

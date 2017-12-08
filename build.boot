@@ -9,7 +9,7 @@
                   [weasel "0.7.0" :scope "test"]
                   [org.clojure/tools.nrepl "0.2.12" :scope "test"]
                   ; project deps
-                  [org.clojure/clojure "1.8.0"]
+                  [org.clojure/clojure "1.9.0"]
                   [org.clojure/clojurescript "1.9.946" :scope "test"]
                   [reagent "0.7.0" :scope "test"]
                   [ring "1.5.1"]])

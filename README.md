@@ -64,6 +64,6 @@ Writing target dir(s)...
 Elapsed time: 14.898 sec
 ```
 
-The backend REPL server started on port 41183 (and the frontend REPL server on port 9009**.
+The backend REPL server started on port 41183 (port 9009 is the frontend REPL server).
 
 **Step two**: connect to the server repl. In Emacs, I can open `src/clj/full_stack_boot_example/core.clj` and connect with `M-x cider-connect` to `localhost` port `41183`. Your port may vary!

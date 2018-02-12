@@ -36,3 +36,34 @@ To test the **REPL** type `(js/alert "Hello")`, which should open an alert box i
 
 ### Connecting with other tools
 If you would like to connect with other tools, like your editor, you can do so via Port **9009**.
+
+### Connecting a server REPL
+Running `boot run` and `boot repl -c` lets you evaluate ClojureScript code. For running server code, you need a server repl.
+
+**Step one**: Launch a server REPL server with `boot repl -s run`. This lets you plug into the Clojure backend instead of just the ClojureScript frontend. You should see something like this:
+
+```
+$ boot repl -s run
+2018-02-05 10:03:07.145:INFO::main: Logging initialized @3448ms
+Starting reload server on ws://localhost:34735
+Writing boot_cljs_repl.cljs...
+nREPL server started on port 41183 on host 127.0.0.1 - nrepl://127.0.0.1:41183
+2018-02-05 10:03:09.652:INFO:oejs.Server:clojure-agent-send-off-pool-0: jetty-9.2.10.v20150310
+2018-02-05 10:03:09.872:INFO:oejs.ServerConnector:clojure-agent-send-off-pool-0: Started ServerConnector@77d270e3{HTTP/1.1}{0.0.0.0:3000}
+2018-02-05 10:03:09.872:INFO:oejs.Server:clojure-agent-send-off-pool-0: Started @6175ms
+
+Starting file watcher (CTRL-C to quit)...
+
+Writing adzerk/boot_reload/public$/main.cljs to connect to ws://localhost:34735...
+Adding :require adzerk.boot-reload.public$.main to public/main.cljs.edn...
+nREPL server started on port 9009 on host 127.0.0.1 - nrepl://127.0.0.1:9009
+Adding :require adzerk.boot-cljs-repl to main.cljs.edn...
+Compiling ClojureScript...
+• public/main.js
+Writing target dir(s)...
+Elapsed time: 14.898 sec
+```
+
+The backend REPL server started on port 41183 (port 9009 is the frontend REPL server).
+
+**Step two**: connect to the server repl. In Emacs, I can open `src/clj/full_stack_boot_example/core.clj` and connect with `M-x cider-connect` to `localhost` port `41183`. Your port may vary!

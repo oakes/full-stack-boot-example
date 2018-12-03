@@ -8,6 +8,7 @@
                   [com.cemerick/piggieback "0.2.1" :scope "test"]
                   [weasel "0.7.0" :scope "test"]
                   [org.clojure/tools.nrepl "0.2.12" :scope "test"]
+                  [javax.xml.bind/jaxb-api "2.3.0"] ; necessary for Java 9 compatibility
                   ; project deps
                   [org.clojure/clojure "1.9.0"]
                   [org.clojure/clojurescript "1.9.946" :scope "test"]
